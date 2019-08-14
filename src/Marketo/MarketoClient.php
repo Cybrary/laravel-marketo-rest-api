@@ -265,4 +265,30 @@ class MarketoClient
 
         return $response->getResult();
     }
+
+    /**
+     * Remove a lead from a list by list id
+     * 
+     * @method removeLeadFromList
+     * @author AW
+     * @param $listId
+     * @param $lead
+     *
+     * @return array|null
+     * @throws Exceptions\MarketoUpdateLeadFailed
+     */
+    public function removeLeadFromList($listId, $lead)
+    {
+        $response = $this->client->removeLeadsFromList($listId, [$lead]);
+
+        if (! $response->isSuccess()) {
+            $error = $response->getError();
+            $message = $error['message'];
+            $code = (int) $error['code'];
+
+            throw new Exceptions\MarketoUpdateLeadFailed($message, $code);
+        }
+
+        return $response->getResult();
+    }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "infusionweb/laravel-marketo-rest-api",
+    "name": "cybrary/laravel-marketo-rest-api",
     "description": "Provides a Laravel 5 service provider and facade for Marketo REST API Client.",
     "keywords": [
         "laravel",
@@ -7,7 +7,7 @@
         "rest",
         "api"
     ],
-    "homepage": "https://github.com/infusionweb/laravel-marketo-rest-api",
+    "homepage": "https://github.com/cybrary/laravel-marketo-rest-api",
     "license": "MIT",
     "authors": [
         {

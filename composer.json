@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Cybrary\\Marketo\\": "src/"
+            "InfusionWeb\\Laravel\\": "src/"
         }
     },
     "extra": {

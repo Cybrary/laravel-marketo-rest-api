@@ -291,4 +291,56 @@ class MarketoClient
 
         return $response->getResult();
     }
+
+    /**
+     * Add a lead to a list
+     *
+     * @method addLeadToList
+     * @author AW
+     * @param $listId
+     * @param $lead
+     *
+     * @return mixed
+     * @throws Exceptions\MarketoUpdateLeadFailed
+     */
+    public function addLeadToList($listId, $lead)
+    {
+        $response = $this->client->addLeadsToList($listId, [$lead]);
+
+        if (! $response->isSuccess()) {
+            $error = $response->getError();
+            $message = $error['message'];
+            $code = (int) $error['code'];
+
+            throw new Exceptions\MarketoUpdateLeadFailed($message, $code);
+        }
+
+        return $response->getResult();
+    }
+
+    /**
+     * Check if a user is on a certain list
+     * 
+     * @method isMemberOfList
+     * @author AW
+     * @param $listId
+     * @param $leadId
+     *
+     * @return array|null
+     * @throws Exceptions\MarketoUpdateLeadFailed
+     */
+    public function isMemberOfList($listId, $leadId)
+    {
+        $response = $this->client->isMemberOfList($listId, $leadId);
+
+        if (! $response->isSuccess()) {
+            $error = $response->getError();
+            $message = $error['message'];
+            $code = (int) $error['code'];
+
+            throw new Exceptions\MarketoUpdateLeadFailed($message, $code);
+        }
+
+        return $response->getResult();
+    }
 }
